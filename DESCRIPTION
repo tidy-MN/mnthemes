@@ -1,0 +1,18 @@
+Type: Package
+Package: mnthemes
+Title: Custom ggplot2 themes inspired by Minnesota state brand colors and
+    styles.
+Version: 0.1.0
+Authors@R: 
+    person("Kvale", "Dorfish", , "dorian.kvale@state.mn.us", role = c("aut", "cre"))
+Maintainer: Dorfish <dorian.kvale@state.mn.us>
+Description: Custom ggplot2 themes inspired by Minnesota state brand
+    colors and styles.  Includes helper functions for styling plots and
+    adding state colors and agency logos.
+License: MIT + file LICENSE
+Imports: 
+    cowplot,
+    ggplot2,
+    ggtext
+Encoding: UTF-8
+RoxygenNote: 7.3.2

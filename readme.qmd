@@ -1,29 +1,55 @@
-# mnthemes
-
+---
+title: "mnthemes"
+format: gfm
+execute: 
+  echo: true
+  warning: false
+  message: false
+editor: source
+---
 
 [![Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
-Minnesota state brand themes and helper functions for ggplot2. Includes
-default styles and state agency logos.
 
-------------------------------------------------------------------------
+```{r}
+#| label: setup
+#| include: false
+
+#library(mnthemes)
+library(ggplot2)
+library(ggtext)
+library(cowplot)
+library(magick)
+source("R/base_theme.R")
+source("R/base_theme_dark.R")
+source("R/theme_mn.R")
+source("R/theme_mn_dark.R")
+source("R/title_banner.R")
+source("R/add_mn_logo.R")
+source("R/mn_color_2_hex.R")
+```
+
+
+Minnesota state brand themes and helper functions for ggplot2. Includes default styles and state agency logos.
+
+
+---
 
 ## Installation
 
 You can install the development version from GitHub:
 
-``` r
+```{r, eval = FALSE}
 # install.packages("remotes")
 remotes::install_github("tidy-MN/mnthemes")
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Examples
 
 ### `theme_mn()`
-
-``` r
+```{r}
 p <- ggplot(mtcars, aes(x = mpg, y = wt), ) + 
       labs(title = "Minnesota branded plot",
            subtitle = "Ope! Things are going downhill but not too bad. Overall could be worse.",
@@ -37,31 +63,24 @@ p +
   theme_mn()
 ```
 
-![](readme_files/figure-commonmark/unnamed-chunk-2-1.png)
-
 ### `theme_mn_dark()`
-
-``` r
+```{r}
 p + 
   geom_point(color = mn_color("gold"), size = 12, alpha = 0.75) + #"#F0F0F0"
   theme_mn_dark()
 ```
 
-![](readme_files/figure-commonmark/unnamed-chunk-3-1.png)
 
 ### `theme_mn_dark()` - Gold
-
-``` r
+```{r}
 p + 
   geom_point(color = "white", size = 12, alpha = 0.75) + #"#F0F0F0"
   theme_mn_dark(text_color = mn_color("gold"))
 ```
 
-![](readme_files/figure-commonmark/unnamed-chunk-4-1.png)
 
 ### `theme_mn_dark()` - Green
-
-``` r
+```{r}
 p + 
   geom_point(color = "white", fill = scales::alpha(mn_color("gold"), 0.75),
              size = 15, shape = 21) + 
@@ -69,11 +88,9 @@ p +
   theme_mn_dark(bg_color = "accent green", text_color = "white")
 ```
 
-![](readme_files/figure-commonmark/unnamed-chunk-5-1.png)
 
-### `theme_mn_dark()` - Green \| White banner
-
-``` r
+### `theme_mn_dark()` - Green | White banner
+```{r}
 p + 
   geom_point(color = "white", fill = scales::alpha(mn_color("gold"), 0.75),
              size = 15, shape = 21) + 
@@ -85,11 +102,9 @@ p +
                 banner_text_color = "accent green")
 ```
 
-![](readme_files/figure-commonmark/unnamed-chunk-6-1.png)
 
-### `theme_mn_dark()` - Green \| Gold banner
-
-``` r
+### `theme_mn_dark()` - Green | Gold banner
+```{r}
 p + 
   geom_point(color = "white", fill = scales::alpha(mn_color("gold"), 0.75),
              size = 12, shape = 21) + 
@@ -102,71 +117,49 @@ p +
                 banner_alpha = 0.85)
 ```
 
-![](readme_files/figure-commonmark/unnamed-chunk-7-1.png)
-
 ### With logo
-
-``` r
+```{r}
 p <- p + 
      geom_point(color = "#003865", size = 7, alpha = 0.5) +
      theme_mn() 
 
 p |> add_mn_logo()
-```
-
-![](readme_files/figure-commonmark/unnamed-chunk-8-1.png)
-
-``` r
 p |> add_mn_logo("mdh", logo_width = 0.18)
-```
-
-![](readme_files/figure-commonmark/unnamed-chunk-8-2.png)
-
-``` r
 p |> add_mn_logo("mpca", logo_width = 0.28)
-```
 
-![](readme_files/figure-commonmark/unnamed-chunk-8-3.png)
-
-``` r
 ## Dark mode logos
 p <- p + geom_point(color = mn_color("gold"), size = 7, alpha = 0.7) + theme_mn_dark(bg_color = "accent green", text_color = "white")
 p |> add_mn_logo("mpca-inverse", logo_width = 0.24, bg_color = "accent green")
 ```
 
-![](readme_files/figure-commonmark/unnamed-chunk-8-4.png)
 
-------------------------------------------------------------------------
+---
 
 ## Features
 
-- **Themes**: Minnesota branded themes (`theme_mn()`, `theme_mn_dark()`,
-  …)  
-- **Logos**: Add agency logo to plot (`add_mn_logo()`,
-  `add_mn_logo("MPCA")`)
+- **Themes**: Minnesota branded themes (`theme_mn()`, `theme_mn_dark()`, …)  
+- **Logos**: Add agency logo to plot (`add_mn_logo()`, `add_mn_logo("MPCA")`)  
 
-------------------------------------------------------------------------
+---
 
 ## Contributing
 
-Contributions are welcome! If you’d like to suggest styles or
-improvements, open an issue or pull request on GitHub.
+Contributions are welcome! If you’d like to suggest styles or improvements, open an issue or pull request on GitHub.
 
-------------------------------------------------------------------------
+---
 
 ## License
 
 This package is released under the MIT License.
 
-------------------------------------------------------------------------
+---
 
 ## Acknowledgements
 
-Built on the shoulders of [ggplot2](https://ggplot2.tidyverse.org/) and
-[hrbrthemes](https://github.com/hrbrmstr/hrbrthemes).
+Built on the shoulders of [ggplot2](https://ggplot2.tidyverse.org/) and [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes).  
 
-------------------------------------------------------------------------
+---
 
-``` bash
+```bash
 quarto render README.qmd --to gfm
 ```
