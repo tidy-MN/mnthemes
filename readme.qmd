@@ -157,7 +157,7 @@ plot + theme_mn_dark(text_color = "teal")
 ```
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=F}
 #| output: asis
 #| 
 mn_colors <- c(
@@ -190,18 +190,48 @@ mn_colors <- c(
   "orange"         = "#E57200"
 )
 
-# Build markdown table
-md <- "| COLOR_NAME | HEX_CODE | COLOR |\n|------------|----------|-------|\n"
+library(png)
+library(grid)
 
 for (i in seq_along(mn_colors)) {
-  name <- names(mn_colors)[i]
-  hex  <- mn_colors[i]
-  swatch <- sprintf("<span style='display:inline-block;width:40px;height:20px;background-color:%s;border:1px solid #000;'></span>", hex)
-  md <- paste0(md, "| ", name, " | ", hex, " | ", swatch, " |\n")
+  filename <- paste0("colors/", gsub(" ", "-", names(mn_colors)[i]), ".png")
+  png(filename, width = 40, height = 20)
+  grid.rect(gp = gpar(fill = mn_colors[i], col = NA))
+  dev.off()
 }
-
-cat(md)
 ```
+
+
+| COLOR_NAME    | HEX_CODE  | COLOR |
+|---------------|----------|-------|
+| mn blue       | #003865  | ![mn blue](colors/mn-blue.png) |
+| blue          | #003865  | ![blue](colors/blue.png) |
+| mn green      | #78BE21  | ![mn green](colors/mn-green.png) |
+| green         | #78BE21  | ![green](colors/green.png) |
+| white         | #FFFFFF  | ![white](colors/white.png) |
+| offwhite      | #F0F0F0  | ![offwhite](colors/offwhite.png) |
+| off white     | #F0F0F0  | ![off white](colors/off-white.png) |
+| black         | #000000  | ![black](colors/black.png) |
+| accent teal   | #008EAA  | ![accent teal](colors/accent-teal.png) |
+| teal          | #008EAA  | ![teal](colors/teal.png) |
+| accent green  | #0D5257  | ![accent green](colors/accent-green.png) |
+| accent orange | #8D3F2B  | ![accent orange](colors/accent-orange.png) |
+| accent purple | #5D295F  | ![accent purple](colors/accent-purple.png) |
+| accent blue gray | #A4BCC2 | ![accent blue gray](colors/accent-blue-gray.png) |
+| blue gray     | #A4BCC2  | ![blue gray](colors/blue-gray.png) |
+| accent cream  | #F5E1A4  | ![accent cream](colors/accent-cream.png) |
+| cream         | #F5E1A4  | ![cream](colors/cream.png) |
+| accent sky blue | #9BCBEB | ![accent sky blue](colors/accent-sky-blue.png) |
+| sky blue      | #9BCBEB  | ![sky blue](colors/sky-blue.png) |
+| accent gold   | #FFC845  | ![accent gold](colors/accent-gold.png) |
+| gold          | #FFC845  | ![gold](colors/gold.png) |
+| dark gray     | #53565A  | ![dark gray](colors/dark-gray.png) |
+| gray          | #53565A  | ![gray](colors/gray.png) |
+| medium gray   | #97999B  | ![medium gray](colors/medium-gray.png) |
+| light gray    | #D9D9D6  | ![light gray](colors/light-gray.png) |
+| red           | #A6192E  | ![red](colors/red.png) |
+| orange        | #E57200  | ![orange](colors/orange.png) |
+
 
 
 ---

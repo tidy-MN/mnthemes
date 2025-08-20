@@ -163,35 +163,35 @@ Example:
 plot + theme_mn_dark(text_color = "teal")
 ```
 
-| COLOR_NAME | HEX_CODE | COLOR |
-|----|----|----|
-| mn blue | \#003865 | <span style="display:inline-block;width:40px;height:20px;background-color:#003865;border:1px solid #000;"></span> |
-| blue | \#003865 | <span style="display:inline-block;width:40px;height:20px;background-color:#003865;border:1px solid #000;"></span> |
-| mn green | \#78BE21 | <span style="display:inline-block;width:40px;height:20px;background-color:#78BE21;border:1px solid #000;"></span> |
-| green | \#78BE21 | <span style="display:inline-block;width:40px;height:20px;background-color:#78BE21;border:1px solid #000;"></span> |
-| accent teal | \#008EAA | <span style="display:inline-block;width:40px;height:20px;background-color:#008EAA;border:1px solid #000;"></span> |
-| teal | \#008EAA | <span style="display:inline-block;width:40px;height:20px;background-color:#008EAA;border:1px solid #000;"></span> |
-| accent green | \#0D5257 | <span style="display:inline-block;width:40px;height:20px;background-color:#0D5257;border:1px solid #000;"></span> |
-| accent orange | \#8D3F2B | <span style="display:inline-block;width:40px;height:20px;background-color:#8D3F2B;border:1px solid #000;"></span> |
-| accent purple | \#5D295F | <span style="display:inline-block;width:40px;height:20px;background-color:#5D295F;border:1px solid #000;"></span> |
-| accent blue gray | \#A4BCC2 | <span style="display:inline-block;width:40px;height:20px;background-color:#A4BCC2;border:1px solid #000;"></span> |
-| blue gray | \#A4BCC2 | <span style="display:inline-block;width:40px;height:20px;background-color:#A4BCC2;border:1px solid #000;"></span> |
-| accent cream | \#F5E1A4 | <span style="display:inline-block;width:40px;height:20px;background-color:#F5E1A4;border:1px solid #000;"></span> |
-| cream | \#F5E1A4 | <span style="display:inline-block;width:40px;height:20px;background-color:#F5E1A4;border:1px solid #000;"></span> |
-| accent sky blue | \#9BCBEB | <span style="display:inline-block;width:40px;height:20px;background-color:#9BCBEB;border:1px solid #000;"></span> |
-| sky blue | \#9BCBEB | <span style="display:inline-block;width:40px;height:20px;background-color:#9BCBEB;border:1px solid #000;"></span> |
-| accent gold | \#FFC845 | <span style="display:inline-block;width:40px;height:20px;background-color:#FFC845;border:1px solid #000;"></span> |
-| gold | \#FFC845 | <span style="display:inline-block;width:40px;height:20px;background-color:#FFC845;border:1px solid #000;"></span> |
-| dark gray | \#53565A | <span style="display:inline-block;width:40px;height:20px;background-color:#53565A;border:1px solid #000;"></span> |
-| gray | \#53565A | <span style="display:inline-block;width:40px;height:20px;background-color:#53565A;border:1px solid #000;"></span> |
-| medium gray | \#97999B | <span style="display:inline-block;width:40px;height:20px;background-color:#97999B;border:1px solid #000;"></span> |
-| light gray | \#D9D9D6 | <span style="display:inline-block;width:40px;height:20px;background-color:#D9D9D6;border:1px solid #000;"></span> |
-| white | \#FFFFFF | <span style="display:inline-block;width:40px;height:20px;background-color:#FFFFFF;border:1px solid #000;"></span> |
-| offwhite | \#F0F0F0 | <span style="display:inline-block;width:40px;height:20px;background-color:#F0F0F0;border:1px solid #000;"></span> |
-| off white | \#F0F0F0 | <span style="display:inline-block;width:40px;height:20px;background-color:#F0F0F0;border:1px solid #000;"></span> |
-| black | \#000000 | <span style="display:inline-block;width:40px;height:20px;background-color:#000000;border:1px solid #000;"></span> |
-| red | \#A6192E | <span style="display:inline-block;width:40px;height:20px;background-color:#A6192E;border:1px solid #000;"></span> |
-| orange | \#E57200 | <span style="display:inline-block;width:40px;height:20px;background-color:#E57200;border:1px solid #000;"></span> |
+| COLOR_NAME       | HEX_CODE | COLOR                                            |
+|------------------|----------|--------------------------------------------------|
+| mn blue          | \#003865 | ![mn blue](colors/mn-blue.png)                   |
+| blue             | \#003865 | ![blue](colors/blue.png)                         |
+| mn green         | \#78BE21 | ![mn green](colors/mn-green.png)                 |
+| green            | \#78BE21 | ![green](colors/green.png)                       |
+| white            | \#FFFFFF | ![white](colors/white.png)                       |
+| offwhite         | \#F0F0F0 | ![offwhite](colors/offwhite.png)                 |
+| off white        | \#F0F0F0 | ![off white](colors/off-white.png)               |
+| black            | \#000000 | ![black](colors/black.png)                       |
+| accent teal      | \#008EAA | ![accent teal](colors/accent-teal.png)           |
+| teal             | \#008EAA | ![teal](colors/teal.png)                         |
+| accent green     | \#0D5257 | ![accent green](colors/accent-green.png)         |
+| accent orange    | \#8D3F2B | ![accent orange](colors/accent-orange.png)       |
+| accent purple    | \#5D295F | ![accent purple](colors/accent-purple.png)       |
+| accent blue gray | \#A4BCC2 | ![accent blue gray](colors/accent-blue-gray.png) |
+| blue gray        | \#A4BCC2 | ![blue gray](colors/blue-gray.png)               |
+| accent cream     | \#F5E1A4 | ![accent cream](colors/accent-cream.png)         |
+| cream            | \#F5E1A4 | ![cream](colors/cream.png)                       |
+| accent sky blue  | \#9BCBEB | ![accent sky blue](colors/accent-sky-blue.png)   |
+| sky blue         | \#9BCBEB | ![sky blue](colors/sky-blue.png)                 |
+| accent gold      | \#FFC845 | ![accent gold](colors/accent-gold.png)           |
+| gold             | \#FFC845 | ![gold](colors/gold.png)                         |
+| dark gray        | \#53565A | ![dark gray](colors/dark-gray.png)               |
+| gray             | \#53565A | ![gray](colors/gray.png)                         |
+| medium gray      | \#97999B | ![medium gray](colors/medium-gray.png)           |
+| light gray       | \#D9D9D6 | ![light gray](colors/light-gray.png)             |
+| red              | \#A6192E | ![red](colors/red.png)                           |
+| orange           | \#E57200 | ![orange](colors/orange.png)                     |
 
 ------------------------------------------------------------------------
 
