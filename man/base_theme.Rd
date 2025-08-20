@@ -29,7 +29,7 @@ base_theme(
   axis_title_size = 14,
   axis_title_face = "plain",
   axis_title_just = "rt",
-  plot_margin = unit(c(0.2, 0.4, 0.2, 0.2), "cm"),
+  plot_margin = unit(c(0.4, 0.5, 0.4, 0.4), "cm"),
   grid = TRUE,
   grid_col = "#cccccc",
   axis = FALSE,

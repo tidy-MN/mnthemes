@@ -46,13 +46,21 @@ remotes::install_github("tidy-MN/mnthemes")
 
 ---
 
+## Features
+
+- **Themes**: Minnesota branded themes (`theme_mn()`, `theme_mn_dark()`, …)  
+- **Logos**: Add agency logo to plot (`add_mn_logo()`, `add_mn_logo("MPCA")`)  
+
+
+---
+
 ## Examples
 
 ### `theme_mn()`
 ```{r}
 p <- ggplot(mtcars, aes(x = mpg, y = wt), ) + 
       labs(title = "Minnesota branded plot",
-           subtitle = "Ope! Things are going downhill but not too bad. Overall could be worse.",
+           subtitle = "Ope! Things are going downhill but it could be worse.",
            caption = "Data from somewhere, 2024-2025",
            x = "MPG",
            y = "Weight") +
@@ -108,13 +116,14 @@ p +
 p + 
   geom_point(color = "white", fill = scales::alpha(mn_color("gold"), 0.75),
              size = 12, shape = 21) + 
-  #geom_smooth(color = mn_color("offwhite")) +
+  geom_smooth(color = mn_color("offwhite")) +
   theme_mn_dark(bg_color = "accent green", 
                 text_color = "white",
                 banner = TRUE,
                 banner_color = "gold",
                 banner_text_color = "accent_green",
-                banner_alpha = 0.85)
+                banner_alpha = 0.85) +
+  scale_y_continuous(expand = expansion(mult = c(0.001, 0.01)))
 ```
 
 ### With logo
@@ -128,23 +137,103 @@ p |> add_mn_logo("mdh", logo_width = 0.18)
 p |> add_mn_logo("mpca", logo_width = 0.28)
 
 ## Dark mode logos
-p <- p + geom_point(color = mn_color("gold"), size = 7, alpha = 0.7) + theme_mn_dark(bg_color = "accent green", text_color = "white")
-p |> add_mn_logo("mpca-inverse", logo_width = 0.24, bg_color = "accent green")
+p <- p + 
+  geom_point(color = mn_color("white"), size = 7, alpha = 0.7) + 
+  theme_mn_dark()
+
+p |> add_mn_logo("mpca-inverse", logo_width = 0.28, bg_color = "blue")
+```
+
+---
+
+## MN color names
+
+Use `mn_color("blue")` to get a MN brand color's HEX code. You can use the color names in any of the `mntheme` functions and they will convert the names to the HEX code for you.
+
+Example:
+
+```{r, eval=FALSE}
+plot + theme_mn_dark(text_color = "teal")
+```
+
+
+```{r, echo=FALSE}
+#| output: asis
+#| 
+mn_colors <- c(
+  "mn blue"        = "#003865",
+  "blue"           = "#003865",
+  "mn green"       = "#78BE21",
+  "green"          = "#78BE21",
+  "accent teal"    = "#008EAA",
+  "teal"           = "#008EAA",
+  "accent green"   = "#0D5257",
+  "accent orange"  = "#8D3F2B",
+  "accent purple"  = "#5D295F",
+  "accent blue gray" = "#A4BCC2",
+  "blue gray"      = "#A4BCC2",
+  "accent cream"   = "#F5E1A4",
+  "cream"          = "#F5E1A4",
+  "accent sky blue"= "#9BCBEB",
+  "sky blue"       = "#9BCBEB",
+  "accent gold"    = "#FFC845",
+  "gold"           = "#FFC845",
+  "dark gray"      = "#53565A",
+  "gray"           = "#53565A",
+  "medium gray"    = "#97999B",
+  "light gray"     = "#D9D9D6",
+  "white"          = "#FFFFFF",
+  "offwhite"       = "#F0F0F0",
+  "off white"      = "#F0F0F0",
+  "black"          = "#000000",
+  "red"            = "#A6192E",
+  "orange"         = "#E57200"
+)
+
+# Build markdown table
+md <- "| COLOR_NAME | HEX_CODE | COLOR |\n|------------|----------|-------|\n"
+
+for (i in seq_along(mn_colors)) {
+  name <- names(mn_colors)[i]
+  hex  <- mn_colors[i]
+  swatch <- sprintf("<span style='display:inline-block;width:40px;height:20px;background-color:%s;border:1px solid #000;'></span>", hex)
+  md <- paste0(md, "| ", name, " | ", hex, " | ", swatch, " |\n")
+}
+
+cat(md)
 ```
 
 
 ---
 
-## Features
+## Logo options
 
-- **Themes**: Minnesota branded themes (`theme_mn()`, `theme_mn_dark()`, …)  
-- **Logos**: Add agency logo to plot (`add_mn_logo()`, `add_mn_logo("MPCA")`)  
+You can add an organization’s logo to a plot by passing a logo short name to `add_mn_logo()`.
+
+Example:
+
+```{r, eval=FALSE}
+plot %>% add_mn_logo("mdh")
+```
+
+| NAME | LOGO |
+|------|------|
+| horizontal | <img src="https://mn.gov/portal/assets/horizontal-logo_tcm1077-265300.jpg" width="120"> |
+| primary | <img src="https://mn.gov/portal/assets/primary-logo_tcm1077-265311.jpg" width="120"> |
+| primary-inverse | <span style="background-color:#003865;padding:4px;display:inline-block;"><img src="https://mn.gov/portal/assets/primary-reversed-logo_tcm1077-265309.jpg" width="120"></span> |
+| mdh | <img src="https://www.health.state.mn.us/about/images/logo-mdh-mn-h-blu_rgb.png" width="120"> |
+| mdh-inverse | <span style="background-color:#003865;padding:4px;display:inline-block;"><img src="https://www.health.state.mn.us/about/images/logo-mdh-mn-h-whi_rgb.png" width="120"></span> |
+| mdh-tall | <img src="https://www.health.state.mn.us/about/images/logo-mdh-mn-v-blu_rgb.png" width="60"> |
+| mdh-tall-inverse | <span style="background-color:#003865;padding:4px;display:inline-block;"><img src="https://www.health.state.mn.us/about/images/logo-mdh-mn-v-whi_rgb.png" width="60"></span> |
+| mpca | <img src="https://stormwater.pca.state.mn.us/images/2/21/MPCA_logo.png" width="120"> |
+| mpca-inverse | <span style="background-color:#003865;padding:4px;display:inline-block;"><img src="https://www.pca.state.mn.us/themes/custom/mpca/images/mpca-logo-reverse.png" width="120"></span> |
+
 
 ---
 
 ## Contributing
 
-Contributions are welcome! If you’d like to suggest styles or improvements, open an issue or pull request on GitHub.
+Contributions welcome! If you’d like to suggest themes or improvements, open an issue or pull request on GitHub.
 
 ---
 
@@ -159,7 +248,3 @@ This package is released under the MIT License.
 Built on the shoulders of [ggplot2](https://ggplot2.tidyverse.org/) and [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes).  
 
 ---
-
-```bash
-quarto render README.qmd --to gfm
-```
