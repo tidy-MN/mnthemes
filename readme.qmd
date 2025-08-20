@@ -195,7 +195,7 @@ library(grid)
 
 for (i in seq_along(mn_colors)) {
   filename <- paste0("colors/", gsub(" ", "-", names(mn_colors)[i]), ".png")
-  png(filename, width = 40, height = 20)
+  png(filename, width = 40, height = 20, bg = "transparent")
   grid.rect(gp = gpar(fill = mn_colors[i], col = NA))
   dev.off()
 }
